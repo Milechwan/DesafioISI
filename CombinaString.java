@@ -3,6 +3,10 @@ package questao1;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class CombinaString{
     private List<String> mapeiaLetras;
@@ -109,10 +113,27 @@ public class CombinaString{
     
     public static void main(String[] args){
         CombinaString combinaString = new CombinaString();
-        System.out.println(combinaString.numeroCombinacoes("12116"));
-        List<String> combinacoes = combinaString.getCombinacoes();
-        for(String a : combinacoes) {
-        	System.out.println(combinaString.traduzCombinacoes(a.split(",")));
-        }
+        try {
+			List<String> entradasLinhas = Files.readAllLines(Paths.get("questao.in"));
+			 FileOutputStream outputStream = new FileOutputStream("questao.out");
+			for(String in: entradasLinhas) {
+				String qtdComb = "Número de combinações: "+combinaString.numeroCombinacoes(in)+"\n"+"Combinações possíveis: \n";
+				outputStream.write(qtdComb.getBytes());
+				
+				List<String> combinacoes = combinaString.getCombinacoes();
+		        for(String a : combinacoes) {
+		        	String aux = combinaString.traduzCombinacoes(a.split(",")) + "\n";
+		        	outputStream.write(aux.getBytes());
+		        }
+				//System.out.println(combinaString.numeroCombinacoes(in));
+			}
+		
+			outputStream.close();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+        //System.out.println(combinaString.numeroCombinacoes("12116"));
+        
     }
 }
