@@ -7,4 +7,5 @@
 4) Selecionar o projeto listado na caixa de texto e clicar em Finish
 
 Obs.: deixei o arquivo .java no repositório caso não seja possível usar o Eclipse para abrir.
+Os arquivos de entrada e saída encontram-se no arquivo compactado
 

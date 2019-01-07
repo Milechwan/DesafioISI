@@ -80,7 +80,7 @@ public class CombinaString{
         		for(int f=0;f<numerosComb.length;f++) {
         			int nDigitos = numerosComb[f].length();
         			digitosValidos = digitosValidos && (nDigitos<3 && nDigitos>0);
-        			//a verificação se faz necessária pois pode acontecer de fserem formados
+        			//a verificação se faz necessária pois pode acontecer de serem formados
         			//números com mais dígitos que o permitido e 'engolir' outros da string original
         		}
         		
@@ -125,7 +125,7 @@ public class CombinaString{
 		        	String aux = combinaString.traduzCombinacoes(a.split(",")) + "\n";
 		        	outputStream.write(aux.getBytes());
 		        }
-				//System.out.println(combinaString.numeroCombinacoes(in));
+				
 			}
 		
 			outputStream.close();
@@ -133,7 +133,6 @@ public class CombinaString{
 			
 			e.printStackTrace();
 		}
-        //System.out.println(combinaString.numeroCombinacoes("12116"));
-        
+       
     }
 }
